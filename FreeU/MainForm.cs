@@ -35,7 +35,6 @@ namespace FreeU
 			{
 				logPrint(error.Message);
 				this.Show();
-				MessageBox.Show("Please ,Select a port!");
 			}
 			timer1.Start();
 		}
@@ -277,7 +276,6 @@ namespace FreeU
 
 		private void Form1_Load(object sender, EventArgs e)
 		{
-			this.MaximizeBox = false;
 			picLED1.Image = FreeU.Properties.Resources.led_OFF;
 			picLED2.Image = FreeU.Properties.Resources.led_OFF;
 		}
@@ -290,41 +288,49 @@ namespace FreeU
 				zigbee.sendCommand("5");
 		}
 
-		private void button1_Click_1(object sender, EventArgs e)
-		{
-			zigbee.sendCommand("z");
-		}
-
 		private void tmrConnection_Tick(object sender, EventArgs e)
 		{
-			if (!zigbee.isConnected())
+			if (zigbee.isConnected())
 			{
 				tmrConnection.Enabled = false;
-				DialogResult dialogResult;
 				bool successful = false;
-				do
+				DialogResult dialogResult = MessageBox.Show("Connection lost\r\nPress OK to connect again ,or Cancel to exit", "Connection lost", MessageBoxButtons.OKCancel);
+				if (dialogResult == DialogResult.OK)
 				{
-					dialogResult = MessageBox.Show("Connection lost\r\nConnect again then press OK or Cancel to exit", "Connection lost", MessageBoxButtons.OKCancel);
-					if (dialogResult == DialogResult.Cancel)
-					{
-						zigbee.closePort();
-						Process.GetCurrentProcess().Kill();
-					}
-					try { zigbee.setupPort(); successful = true; }
-					catch (Exception err) { logPrint(err.Message); }
-
-				} while (!successful);
+					zigbee.closePort();
+					Form selectForm = new Select_Port();
+					selectForm.ShowDialog(this);
+				}
+				else if (dialogResult == DialogResult.Cancel)
+				{
+					Process.GetCurrentProcess().Kill();
+				}
+				try { zigbee.setupPort(); successful = zigbee.isConnected(); }
+				catch (Exception err) { logPrint(err.Message); }
 				tmrConnection.Enabled = true;
 			}
-		}
+			//tmrConnection.Enabled = false;
+			//DialogResult dialogResult;
+			//bool successful = false;
+			//if (this.Enabled == true)
+			//	do
+			//	{
+			//		dialogResult = MessageBox.Show("Connection lost\r\nConnect again then press OK or Cancel to exit", "Connection lost", MessageBoxButtons.OKCancel);
+			//		if (dialogResult == DialogResult.Cancel)
+			//		{
+			//			zigbee.closePort();
+			//			//this.Enabled = false;
+			//			Form selectForm = new Select_Port();
+			//			//this.AddOwnedForm(selectForm);
+			//			selectForm.Show();
+			//			break;
+			//			//Process.GetCurrentProcess().Kill();
+			//		}
+			//		try { zigbee.setupPort(); successful = true; }
+			//		catch (Exception err) { logPrint(err.Message); }
 
-		private void button2_Click(object sender, EventArgs e)
-		{
-			DateTime t1 = DateTime.Now;
-			MessageBox.Show("jhgfds");
-			DateTime t2 = DateTime.Now;
-			TimeSpan diff = t2.Subtract(t1);
-			logPrint(diff.TotalMilliseconds.ToString() + "\r\n");
+			//	} while (1 == 0 && !successful);
+			//	tmrConnection.Enabled = true;
 		}
 	}
 }

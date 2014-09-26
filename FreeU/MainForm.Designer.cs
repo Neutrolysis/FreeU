@@ -45,7 +45,6 @@
 			this.label3 = new System.Windows.Forms.Label();
 			this.lblHumidity = new System.Windows.Forms.Label();
 			this.tabPage3 = new System.Windows.Forms.TabPage();
-			this.button1 = new System.Windows.Forms.Button();
 			this.label2 = new System.Windows.Forms.Label();
 			this.cmbMode = new System.Windows.Forms.ComboBox();
 			this.groupBox4 = new System.Windows.Forms.GroupBox();
@@ -67,7 +66,6 @@
 			this.chkLED2 = new System.Windows.Forms.CheckBox();
 			this.tabPage1 = new System.Windows.Forms.TabPage();
 			this.panel1 = new System.Windows.Forms.Panel();
-			this.button2 = new System.Windows.Forms.Button();
 			this.txtSerialMessage = new System.Windows.Forms.TextBox();
 			this.txtSerial = new System.Windows.Forms.TextBox();
 			this.btnSerialSend = new System.Windows.Forms.Button();
@@ -127,6 +125,7 @@
 			// 
 			// tabPage2
 			// 
+			this.tabPage2.BackColor = System.Drawing.SystemColors.Control;
 			this.tabPage2.Controls.Add(this.label6);
 			this.tabPage2.Controls.Add(this.lblEnergy);
 			this.tabPage2.Controls.Add(this.label1);
@@ -139,7 +138,6 @@
 			this.tabPage2.Controls.Add(this.lblTemp);
 			resources.ApplyResources(this.tabPage2, "tabPage2");
 			this.tabPage2.Name = "tabPage2";
-			this.tabPage2.UseVisualStyleBackColor = true;
 			// 
 			// label6
 			// 
@@ -189,7 +187,6 @@
 			// tabPage3
 			// 
 			this.tabPage3.BackColor = System.Drawing.SystemColors.Control;
-			this.tabPage3.Controls.Add(this.button1);
 			this.tabPage3.Controls.Add(this.label2);
 			this.tabPage3.Controls.Add(this.cmbMode);
 			this.tabPage3.Controls.Add(this.groupBox4);
@@ -198,13 +195,6 @@
 			this.tabPage3.Controls.Add(this.groupBox1);
 			resources.ApplyResources(this.tabPage3, "tabPage3");
 			this.tabPage3.Name = "tabPage3";
-			// 
-			// button1
-			// 
-			resources.ApplyResources(this.button1, "button1");
-			this.button1.Name = "button1";
-			this.button1.UseVisualStyleBackColor = true;
-			this.button1.Click += new System.EventHandler(this.button1_Click_1);
 			// 
 			// label2
 			// 
@@ -376,19 +366,11 @@
 			// 
 			// panel1
 			// 
-			this.panel1.Controls.Add(this.button2);
 			this.panel1.Controls.Add(this.txtSerialMessage);
 			this.panel1.Controls.Add(this.txtSerial);
 			this.panel1.Controls.Add(this.btnSerialSend);
 			resources.ApplyResources(this.panel1, "panel1");
 			this.panel1.Name = "panel1";
-			// 
-			// button2
-			// 
-			resources.ApplyResources(this.button2, "button2");
-			this.button2.Name = "button2";
-			this.button2.UseVisualStyleBackColor = true;
-			this.button2.Click += new System.EventHandler(this.button2_Click);
 			// 
 			// txtSerialMessage
 			// 
@@ -490,6 +472,7 @@
 			this.Controls.Add(this.tabControl2);
 			this.Controls.Add(this.menuStrip1);
 			this.MainMenuStrip = this.menuStrip1;
+			this.MaximizeBox = false;
 			this.Name = "MainForm";
 			this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
 			this.Load += new System.EventHandler(this.Form1_Load);
@@ -565,11 +548,9 @@
 		private System.Windows.Forms.PictureBox picLED2;
 		private System.Windows.Forms.Label label5;
 		private System.Windows.Forms.Label lblSmoke;
-		private System.Windows.Forms.Button button1;
 		private System.Windows.Forms.Timer tmrConnection;
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.Label lblPower;
-		private System.Windows.Forms.Button button2;
 		private System.Windows.Forms.Label label6;
 		private System.Windows.Forms.Label lblEnergy;
 	}

@@ -17,3 +17,4 @@ D:\Lab\Visual Studio 2012\Projects\FreeU\FreeU\obj\Release\FreeU.application
 D:\Lab\Visual Studio 2012\Projects\FreeU\FreeU\obj\Release\FreeU.exe
 D:\Lab\Visual Studio 2012\Projects\FreeU\FreeU\obj\Release\FreeU.pdb
 D:\Lab\Visual Studio 2012\Projects\FreeU\FreeU\obj\Release\FreeU.csprojResolveAssemblyReference.cache
+D:\Lab\Visual Studio 2012\Projects\FreeU\FreeU\obj\Release\FreeU.Select_Port.resources
