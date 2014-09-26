@@ -27,7 +27,7 @@ namespace FreeU
 			acTemp = (int)numericUpDown1.Value;
 			try
 			{
-				zigbee.setupPort(Serial.DEFAULT_PORT_NAME, Serial.BAUD_RATE);
+				zigbee.setupPort();
 			}
 			catch (System.IO.IOException error)
 			{
@@ -41,7 +41,13 @@ namespace FreeU
 			portToolStripMenuItem.DropDownItems.Clear();
 			if (SerialPort.GetPortNames().Count() > 0)
 				foreach (string p in SerialPort.GetPortNames())
+				{
 					portToolStripMenuItem.DropDownItems.Add(p);
+					//if (zigbee.isConnected()) && p.Equals(zigbee.getPortName()))
+					{
+						((ToolStripMenuItem)portToolStripMenuItem.DropDownItems[portToolStripMenuItem.DropDownItems.Count - 1]).Checked = true;
+					}
+				}
 
 			portToolStripMenuItem.DropDownItems.Add("-");
 			portToolStripMenuItem.DropDownItems.Add("Update");
@@ -210,12 +216,14 @@ namespace FreeU
 
 		private void portToolStripMenuItem_DropDownItemClicked(object sender, ToolStripItemClickedEventArgs e)
 		{
+			((ToolStripMenuItem)e.ClickedItem).Checked = true;// CheckOnClick = true;
+
+			//e.ClickedItem.Select();
+			//portToolStripMenuItem.DropDownItems[0].Select();
 			if (e.ClickedItem.ToString().Equals("Update"))
 				putCOMSIntoMenu();
 			else
-			{
 				zigbee.setupPort(e.ClickedItem.ToString(), Serial.BAUD_RATE);
-			}
 
 		}
 
@@ -312,7 +320,7 @@ namespace FreeU
 
 		private void optionsToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			putCOMSIntoMenu();
+			//putCOMSIntoMenu();
 		}
 
 

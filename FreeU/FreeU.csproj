@@ -24,7 +24,7 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ProductName>FreeU</ProductName>
     <PublisherName>Neutrolysis</PublisherName>
-    <ApplicationRevision>2</ApplicationRevision>
+    <ApplicationRevision>3</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -91,13 +91,13 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Select Port.cs">
+    <Compile Include="Select_Port.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Select Port.Designer.cs">
-      <DependentUpon>Select Port.cs</DependentUpon>
+    <Compile Include="Select_Port.Designer.cs">
+      <DependentUpon>Select_Port.cs</DependentUpon>
     </Compile>
-    <Compile Include="SensorUnit.cs" />
+    <Compile Include="SensorsUnit.cs" />
     <Compile Include="Serial.cs" />
     <EmbeddedResource Include="MainForm.am.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -119,8 +119,8 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Select Port.resx">
-      <DependentUpon>Select Port.cs</DependentUpon>
+    <EmbeddedResource Include="Select_Port.resx">
+      <DependentUpon>Select_Port.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="NeutrolysisControl_TemporaryKey.pfx" />
     <None Include="Properties\Settings.settings">
