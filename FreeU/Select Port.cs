@@ -28,6 +28,7 @@ namespace FreeU
 			if (cmbPorts.SelectedItem != null)
 			{
 				FreeU.Properties.Settings.Default.DEFAULT_PORT_NAME = cmbPorts.SelectedItem.ToString();
+				Properties.Settings.Default.Save();
 				Close();
 			}
 		}

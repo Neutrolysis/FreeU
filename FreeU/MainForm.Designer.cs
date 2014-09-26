@@ -30,11 +30,11 @@
 		{
 			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-			this.lblTemp = new System.Windows.Forms.Label();
 			this.timer1 = new System.Windows.Forms.Timer(this.components);
 			this.chkLED1 = new System.Windows.Forms.CheckBox();
 			this.tabControl2 = new System.Windows.Forms.TabControl();
-			this.tabPage2 = new System.Windows.Forms.TabPage();
+			this.tabPage3 = new System.Windows.Forms.TabPage();
+			this.groupBox5 = new System.Windows.Forms.GroupBox();
 			this.label6 = new System.Windows.Forms.Label();
 			this.lblEnergy = new System.Windows.Forms.Label();
 			this.label1 = new System.Windows.Forms.Label();
@@ -44,7 +44,7 @@
 			this.label4 = new System.Windows.Forms.Label();
 			this.label3 = new System.Windows.Forms.Label();
 			this.lblHumidity = new System.Windows.Forms.Label();
-			this.tabPage3 = new System.Windows.Forms.TabPage();
+			this.lblTemp = new System.Windows.Forms.Label();
 			this.label2 = new System.Windows.Forms.Label();
 			this.cmbMode = new System.Windows.Forms.ComboBox();
 			this.groupBox4 = new System.Windows.Forms.GroupBox();
@@ -64,6 +64,17 @@
 			this.picLED2 = new System.Windows.Forms.PictureBox();
 			this.picLED1 = new System.Windows.Forms.PictureBox();
 			this.chkLED2 = new System.Windows.Forms.CheckBox();
+			this.tabPage2 = new System.Windows.Forms.TabPage();
+			this.label7 = new System.Windows.Forms.Label();
+			this.label8 = new System.Windows.Forms.Label();
+			this.label9 = new System.Windows.Forms.Label();
+			this.label10 = new System.Windows.Forms.Label();
+			this.label11 = new System.Windows.Forms.Label();
+			this.label12 = new System.Windows.Forms.Label();
+			this.label13 = new System.Windows.Forms.Label();
+			this.label14 = new System.Windows.Forms.Label();
+			this.label15 = new System.Windows.Forms.Label();
+			this.label16 = new System.Windows.Forms.Label();
 			this.tabPage1 = new System.Windows.Forms.TabPage();
 			this.panel1 = new System.Windows.Forms.Panel();
 			this.txtSerialMessage = new System.Windows.Forms.TextBox();
@@ -81,8 +92,8 @@
 			this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
 			this.tmrConnection = new System.Windows.Forms.Timer(this.components);
 			this.tabControl2.SuspendLayout();
-			this.tabPage2.SuspendLayout();
 			this.tabPage3.SuspendLayout();
+			this.groupBox5.SuspendLayout();
 			this.groupBox4.SuspendLayout();
 			this.groupBox3.SuspendLayout();
 			this.groupBox2.SuspendLayout();
@@ -91,15 +102,11 @@
 			this.groupBox1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.picLED2)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.picLED1)).BeginInit();
+			this.tabPage2.SuspendLayout();
 			this.tabPage1.SuspendLayout();
 			this.panel1.SuspendLayout();
 			this.menuStrip1.SuspendLayout();
 			this.SuspendLayout();
-			// 
-			// lblTemp
-			// 
-			resources.ApplyResources(this.lblTemp, "lblTemp");
-			this.lblTemp.Name = "lblTemp";
 			// 
 			// timer1
 			// 
@@ -116,28 +123,43 @@
 			// 
 			// tabControl2
 			// 
-			this.tabControl2.Controls.Add(this.tabPage2);
 			this.tabControl2.Controls.Add(this.tabPage3);
+			this.tabControl2.Controls.Add(this.tabPage2);
 			this.tabControl2.Controls.Add(this.tabPage1);
 			resources.ApplyResources(this.tabControl2, "tabControl2");
 			this.tabControl2.Name = "tabControl2";
 			this.tabControl2.SelectedIndex = 0;
+			this.tabControl2.TabStop = false;
 			// 
-			// tabPage2
+			// tabPage3
 			// 
-			this.tabPage2.BackColor = System.Drawing.SystemColors.Control;
-			this.tabPage2.Controls.Add(this.label6);
-			this.tabPage2.Controls.Add(this.lblEnergy);
-			this.tabPage2.Controls.Add(this.label1);
-			this.tabPage2.Controls.Add(this.lblPower);
-			this.tabPage2.Controls.Add(this.label5);
-			this.tabPage2.Controls.Add(this.lblSmoke);
-			this.tabPage2.Controls.Add(this.label4);
-			this.tabPage2.Controls.Add(this.label3);
-			this.tabPage2.Controls.Add(this.lblHumidity);
-			this.tabPage2.Controls.Add(this.lblTemp);
-			resources.ApplyResources(this.tabPage2, "tabPage2");
-			this.tabPage2.Name = "tabPage2";
+			this.tabPage3.BackColor = System.Drawing.Color.Transparent;
+			this.tabPage3.Controls.Add(this.groupBox5);
+			this.tabPage3.Controls.Add(this.label2);
+			this.tabPage3.Controls.Add(this.cmbMode);
+			this.tabPage3.Controls.Add(this.groupBox4);
+			this.tabPage3.Controls.Add(this.groupBox3);
+			this.tabPage3.Controls.Add(this.groupBox2);
+			this.tabPage3.Controls.Add(this.groupBox1);
+			resources.ApplyResources(this.tabPage3, "tabPage3");
+			this.tabPage3.Name = "tabPage3";
+			// 
+			// groupBox5
+			// 
+			this.groupBox5.BackColor = System.Drawing.Color.Transparent;
+			this.groupBox5.Controls.Add(this.label6);
+			this.groupBox5.Controls.Add(this.lblEnergy);
+			this.groupBox5.Controls.Add(this.label1);
+			this.groupBox5.Controls.Add(this.lblPower);
+			this.groupBox5.Controls.Add(this.label5);
+			this.groupBox5.Controls.Add(this.lblSmoke);
+			this.groupBox5.Controls.Add(this.label4);
+			this.groupBox5.Controls.Add(this.label3);
+			this.groupBox5.Controls.Add(this.lblHumidity);
+			this.groupBox5.Controls.Add(this.lblTemp);
+			resources.ApplyResources(this.groupBox5, "groupBox5");
+			this.groupBox5.Name = "groupBox5";
+			this.groupBox5.TabStop = false;
 			// 
 			// label6
 			// 
@@ -184,17 +206,10 @@
 			resources.ApplyResources(this.lblHumidity, "lblHumidity");
 			this.lblHumidity.Name = "lblHumidity";
 			// 
-			// tabPage3
+			// lblTemp
 			// 
-			this.tabPage3.BackColor = System.Drawing.SystemColors.Control;
-			this.tabPage3.Controls.Add(this.label2);
-			this.tabPage3.Controls.Add(this.cmbMode);
-			this.tabPage3.Controls.Add(this.groupBox4);
-			this.tabPage3.Controls.Add(this.groupBox3);
-			this.tabPage3.Controls.Add(this.groupBox2);
-			this.tabPage3.Controls.Add(this.groupBox1);
-			resources.ApplyResources(this.tabPage3, "tabPage3");
-			this.tabPage3.Name = "tabPage3";
+			resources.ApplyResources(this.lblTemp, "lblTemp");
+			this.lblTemp.Name = "lblTemp";
 			// 
 			// label2
 			// 
@@ -214,6 +229,7 @@
 			// 
 			// groupBox4
 			// 
+			this.groupBox4.BackColor = System.Drawing.Color.Transparent;
 			this.groupBox4.Controls.Add(this.btnZoomOut);
 			this.groupBox4.Controls.Add(this.btnZoomIn);
 			this.groupBox4.Controls.Add(this.chkProjector);
@@ -242,7 +258,7 @@
 			// 
 			// groupBox3
 			// 
-			this.groupBox3.BackColor = System.Drawing.SystemColors.Control;
+			this.groupBox3.BackColor = System.Drawing.Color.Transparent;
 			this.groupBox3.Controls.Add(this.chkWindow1);
 			this.groupBox3.Controls.Add(this.chkWindow2);
 			this.groupBox3.Controls.Add(this.chkDoor2);
@@ -278,7 +294,7 @@
 			// 
 			// groupBox2
 			// 
-			this.groupBox2.BackColor = System.Drawing.SystemColors.Control;
+			this.groupBox2.BackColor = System.Drawing.Color.Transparent;
 			this.groupBox2.Controls.Add(this.numericUpDown1);
 			this.groupBox2.Controls.Add(this.trackBar1);
 			this.groupBox2.Controls.Add(this.chkAC);
@@ -310,6 +326,7 @@
 			// 
 			// trackBar1
 			// 
+			this.trackBar1.BackColor = System.Drawing.SystemColors.ButtonFace;
 			resources.ApplyResources(this.trackBar1, "trackBar1");
 			this.trackBar1.LargeChange = 1;
 			this.trackBar1.Maximum = 32;
@@ -327,7 +344,7 @@
 			// 
 			// groupBox1
 			// 
-			this.groupBox1.BackColor = System.Drawing.SystemColors.Control;
+			this.groupBox1.BackColor = System.Drawing.Color.Transparent;
 			this.groupBox1.Controls.Add(this.picLED2);
 			this.groupBox1.Controls.Add(this.chkLED1);
 			this.groupBox1.Controls.Add(this.picLED1);
@@ -356,6 +373,72 @@
 			this.chkLED2.Name = "chkLED2";
 			this.chkLED2.UseVisualStyleBackColor = true;
 			this.chkLED2.CheckedChanged += new System.EventHandler(this.chkLED2_CheckedChanged);
+			// 
+			// tabPage2
+			// 
+			this.tabPage2.BackColor = System.Drawing.SystemColors.Control;
+			this.tabPage2.Controls.Add(this.label7);
+			this.tabPage2.Controls.Add(this.label8);
+			this.tabPage2.Controls.Add(this.label9);
+			this.tabPage2.Controls.Add(this.label10);
+			this.tabPage2.Controls.Add(this.label11);
+			this.tabPage2.Controls.Add(this.label12);
+			this.tabPage2.Controls.Add(this.label13);
+			this.tabPage2.Controls.Add(this.label14);
+			this.tabPage2.Controls.Add(this.label15);
+			this.tabPage2.Controls.Add(this.label16);
+			resources.ApplyResources(this.tabPage2, "tabPage2");
+			this.tabPage2.Name = "tabPage2";
+			// 
+			// label7
+			// 
+			resources.ApplyResources(this.label7, "label7");
+			this.label7.Name = "label7";
+			// 
+			// label8
+			// 
+			resources.ApplyResources(this.label8, "label8");
+			this.label8.Name = "label8";
+			// 
+			// label9
+			// 
+			resources.ApplyResources(this.label9, "label9");
+			this.label9.Name = "label9";
+			// 
+			// label10
+			// 
+			resources.ApplyResources(this.label10, "label10");
+			this.label10.Name = "label10";
+			// 
+			// label11
+			// 
+			resources.ApplyResources(this.label11, "label11");
+			this.label11.Name = "label11";
+			// 
+			// label12
+			// 
+			resources.ApplyResources(this.label12, "label12");
+			this.label12.Name = "label12";
+			// 
+			// label13
+			// 
+			resources.ApplyResources(this.label13, "label13");
+			this.label13.Name = "label13";
+			// 
+			// label14
+			// 
+			resources.ApplyResources(this.label14, "label14");
+			this.label14.Name = "label14";
+			// 
+			// label15
+			// 
+			resources.ApplyResources(this.label15, "label15");
+			this.label15.Name = "label15";
+			// 
+			// label16
+			// 
+			resources.ApplyResources(this.label16, "label16");
+			this.label16.Name = "label16";
 			// 
 			// tabPage1
 			// 
@@ -477,10 +560,10 @@
 			this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
 			this.Load += new System.EventHandler(this.Form1_Load);
 			this.tabControl2.ResumeLayout(false);
-			this.tabPage2.ResumeLayout(false);
-			this.tabPage2.PerformLayout();
 			this.tabPage3.ResumeLayout(false);
 			this.tabPage3.PerformLayout();
+			this.groupBox5.ResumeLayout(false);
+			this.groupBox5.PerformLayout();
 			this.groupBox4.ResumeLayout(false);
 			this.groupBox3.ResumeLayout(false);
 			this.groupBox3.PerformLayout();
@@ -491,6 +574,8 @@
 			this.groupBox1.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.picLED2)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.picLED1)).EndInit();
+			this.tabPage2.ResumeLayout(false);
+			this.tabPage2.PerformLayout();
 			this.tabPage1.ResumeLayout(false);
 			this.panel1.ResumeLayout(false);
 			this.panel1.PerformLayout();
@@ -503,19 +588,15 @@
 
 		#endregion
 
-		private System.Windows.Forms.Label lblTemp;
 		private System.Windows.Forms.Timer timer1;
 		private System.Windows.Forms.CheckBox chkLED1;
 		private System.Windows.Forms.TabControl tabControl2;
 		private System.Windows.Forms.TabPage tabPage2;
 		private System.Windows.Forms.TabPage tabPage3;
-		private System.Windows.Forms.Label lblHumidity;
 		private System.Windows.Forms.CheckBox chkLED2;
 		public System.Windows.Forms.TextBox txtSerial;
 		public System.Windows.Forms.TextBox txtSerialMessage;
 		private System.Windows.Forms.Button btnSerialSend;
-		private System.Windows.Forms.Label label4;
-		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.Panel panel1;
 		private System.Windows.Forms.MenuStrip menuStrip1;
 		private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
@@ -546,13 +627,28 @@
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.PictureBox picLED1;
 		private System.Windows.Forms.PictureBox picLED2;
-		private System.Windows.Forms.Label label5;
-		private System.Windows.Forms.Label lblSmoke;
 		private System.Windows.Forms.Timer tmrConnection;
-		private System.Windows.Forms.Label label1;
-		private System.Windows.Forms.Label lblPower;
+		private System.Windows.Forms.Label label7;
+		private System.Windows.Forms.Label label8;
+		private System.Windows.Forms.Label label9;
+		private System.Windows.Forms.Label label10;
+		private System.Windows.Forms.Label label11;
+		private System.Windows.Forms.Label label12;
+		private System.Windows.Forms.Label label13;
+		private System.Windows.Forms.Label label14;
+		private System.Windows.Forms.Label label15;
+		private System.Windows.Forms.Label label16;
+		private System.Windows.Forms.GroupBox groupBox5;
 		private System.Windows.Forms.Label label6;
 		private System.Windows.Forms.Label lblEnergy;
+		private System.Windows.Forms.Label label1;
+		private System.Windows.Forms.Label lblPower;
+		private System.Windows.Forms.Label label5;
+		private System.Windows.Forms.Label lblSmoke;
+		private System.Windows.Forms.Label label4;
+		private System.Windows.Forms.Label label3;
+		private System.Windows.Forms.Label lblHumidity;
+		private System.Windows.Forms.Label lblTemp;
 	}
 }
 

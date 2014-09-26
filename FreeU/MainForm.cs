@@ -18,7 +18,7 @@ namespace FreeU
 	{
 		Serial zigbee = new Serial();
 
-		SensorUnit sensors = new SensorUnit();
+		SensorsUnit sensors = new SensorsUnit();
 
 		public MainForm()
 		{
@@ -28,12 +28,12 @@ namespace FreeU
 			try
 			{
 				zigbee.setupPort(Serial.DEFAULT_PORT_NAME, Serial.BAUD_RATE);
-				portToolStripMenuItem.Text = "Port (" + zigbee.getPortName() + ")";
+				//portToolStripMenuItem.Text = "Port (" + zigbee.getPortName() + ")";
 				//zigbee.sendCommand("z");
 			}
 			catch (System.IO.IOException error)
 			{
-				logPrint(error.Message);
+				println(error.Message);
 				this.Show();
 			}
 			timer1.Start();
@@ -41,24 +41,18 @@ namespace FreeU
 		void putCOMSIntoMenu()
 		{
 			portToolStripMenuItem.DropDownItems.Clear();
-			if (SerialPort.GetPortNames().Count() >= 0)
-			{
+			if (SerialPort.GetPortNames().Count() > 0)
 				foreach (string p in SerialPort.GetPortNames())
-				{
 					portToolStripMenuItem.DropDownItems.Add(p);
-				}
-			}
-			else
-			{
-				portToolStripMenuItem.DropDownItems.Add("No Ports available, press any key to exit.");
-			} portToolStripMenuItem.DropDownItems.Add("-"); portToolStripMenuItem.DropDownItems.Add("Update");
 
+			portToolStripMenuItem.DropDownItems.Add("-");
+			portToolStripMenuItem.DropDownItems.Add("Update");
 		}
 
 
-		public void logPrint(String msg)
+		public void println(String msg)
 		{
-			txtSerial.Text = msg + "\n\n" + txtSerial.Text;
+			txtSerial.AppendText("\r\n" + msg);
 		}
 
 		Alarm fireAlarm = new Alarm();
@@ -68,14 +62,16 @@ namespace FreeU
 			while (zigbee.hasMsg())
 			{
 				String receivedMsg = zigbee.nextMsg();
-				logPrint(receivedMsg);
+				println(receivedMsg);
 
 				try
 				{
 					//Extract key and value from a command
 					char key = receivedMsg[0];
 					string value = receivedMsg.Substring(1, receivedMsg.Length - 1);
-					double receivedValue = double.Parse(value);
+					double receivedValue = 0;
+					try { receivedValue = double.Parse(value); }
+					catch (FormatException err) { println(err.Message); }
 
 					//	switching on key
 					switch (key)
@@ -125,8 +121,8 @@ namespace FreeU
 						fireAlarm.stop();
 					}
 				}
-				catch (IndexOutOfRangeException error) { logPrint(error.Message); }
-				catch (ArgumentOutOfRangeException error) { logPrint(error.Message); }
+				catch (IndexOutOfRangeException error) { println(error.Message); }
+				catch (ArgumentOutOfRangeException error) { println(error.Message); }
 			}
 		}
 
@@ -165,16 +161,17 @@ namespace FreeU
 		{
 			chkLED2.Checked = !chkLED2.Checked;
 		}
+		///////////////////////////////////////////////////////
+
 		private void Form1_FormClosed(object sender, FormClosedEventArgs e)
 		{
 			zigbee.closePort();
 		}
-		///////////////////////////////////////////////////////
 
 		private void button1_Click(object sender, EventArgs e)
 		{
-			zigbee.sendCommand(txtSerialMessage.Text + "\n");
-			//zigbee.receivedDataQueue.Enqueue(txtSerialMessage.Text);
+			//zigbee.sendCommand(txtSerialMessage.Text + "\n");
+			zigbee.receivedDataQueue.Enqueue(txtSerialMessage.Text);
 			txtSerialMessage.Text = "";
 		}
 
@@ -220,7 +217,7 @@ namespace FreeU
 			else
 			{
 				zigbee.setupPort(e.ClickedItem.ToString(), Serial.BAUD_RATE);
-				portToolStripMenuItem.Text = "Port (" + e.ClickedItem.ToString() + ")";
+				//portToolStripMenuItem.Text = "Port (" + e.ClickedItem.ToString() + ")";
 			}
 
 		}
@@ -246,8 +243,7 @@ namespace FreeU
 			btnZoomIn.Enabled = chkProjector.Checked;
 			btnZoomOut.Enabled = chkProjector.Checked;
 		}
-
-		private void cmbMode_SelectedIndexChanged(object sender, EventArgs e)
+		private void cmbMode_SelectedIndexChanged(object sender, MouseEventArgs e)
 		{
 			switch (cmbMode.SelectedIndex)
 			{
@@ -272,6 +268,10 @@ namespace FreeU
 					chkWindow2.Checked = false;
 					break;
 			}
+		}
+		private void cmbMode_SelectedIndexChanged(object sender, EventArgs e)
+		{
+
 		}
 
 		private void Form1_Load(object sender, EventArgs e)
@@ -306,31 +306,13 @@ namespace FreeU
 					Process.GetCurrentProcess().Kill();
 				}
 				try { zigbee.setupPort(); successful = zigbee.isConnected(); }
-				catch (Exception err) { logPrint(err.Message); }
+				catch (Exception err) { println(err.Message); }
 				tmrConnection.Enabled = true;
 			}
-			//tmrConnection.Enabled = false;
-			//DialogResult dialogResult;
-			//bool successful = false;
-			//if (this.Enabled == true)
-			//	do
-			//	{
-			//		dialogResult = MessageBox.Show("Connection lost\r\nConnect again then press OK or Cancel to exit", "Connection lost", MessageBoxButtons.OKCancel);
-			//		if (dialogResult == DialogResult.Cancel)
-			//		{
-			//			zigbee.closePort();
-			//			//this.Enabled = false;
-			//			Form selectForm = new Select_Port();
-			//			//this.AddOwnedForm(selectForm);
-			//			selectForm.Show();
-			//			break;
-			//			//Process.GetCurrentProcess().Kill();
-			//		}
-			//		try { zigbee.setupPort(); successful = true; }
-			//		catch (Exception err) { logPrint(err.Message); }
-
-			//	} while (1 == 0 && !successful);
-			//	tmrConnection.Enabled = true;
+			else
+				portToolStripMenuItem.Text = "Port (" + zigbee.getPortName() + ")";
 		}
+
+
 	}
 }

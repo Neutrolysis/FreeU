@@ -46,7 +46,7 @@ namespace FreeU
 			var form = Form.ActiveForm as MainForm;
 			try
 			{
-				form.logPrint("Sending: " + s + "\r\n");
+				form.println(">>Sending: " + s + "\r\n");
 				serialPort.Write(s);
 			}
 			catch (InvalidOperationException e)
