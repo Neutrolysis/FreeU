@@ -509,6 +509,7 @@
             this.enableAndroidControlToolStripMenuItem});
 			this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
 			resources.ApplyResources(this.optionsToolStripMenuItem, "optionsToolStripMenuItem");
+			this.optionsToolStripMenuItem.Click += new System.EventHandler(this.optionsToolStripMenuItem_Click);
 			// 
 			// portToolStripMenuItem
 			// 

@@ -28,8 +28,6 @@ namespace FreeU
 			try
 			{
 				zigbee.setupPort(Serial.DEFAULT_PORT_NAME, Serial.BAUD_RATE);
-				//portToolStripMenuItem.Text = "Port (" + zigbee.getPortName() + ")";
-				//zigbee.sendCommand("z");
 			}
 			catch (System.IO.IOException error)
 			{
@@ -170,8 +168,8 @@ namespace FreeU
 
 		private void button1_Click(object sender, EventArgs e)
 		{
-			//zigbee.sendCommand(txtSerialMessage.Text + "\n");
-			zigbee.receivedDataQueue.Enqueue(txtSerialMessage.Text);
+			zigbee.sendCommand(txtSerialMessage.Text + "\n");
+			//zigbee.receivedDataQueue.Enqueue(txtSerialMessage.Text);
 			txtSerialMessage.Text = "";
 		}
 
@@ -217,7 +215,6 @@ namespace FreeU
 			else
 			{
 				zigbee.setupPort(e.ClickedItem.ToString(), Serial.BAUD_RATE);
-				//portToolStripMenuItem.Text = "Port (" + e.ClickedItem.ToString() + ")";
 			}
 
 		}
@@ -290,7 +287,7 @@ namespace FreeU
 
 		private void tmrConnection_Tick(object sender, EventArgs e)
 		{
-			if (zigbee.isConnected())
+			if (!zigbee.isConnected())
 			{
 				tmrConnection.Enabled = false;
 				bool successful = false;
@@ -311,6 +308,11 @@ namespace FreeU
 			}
 			else
 				portToolStripMenuItem.Text = "Port (" + zigbee.getPortName() + ")";
+		}
+
+		private void optionsToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			putCOMSIntoMenu();
 		}
 
 
