@@ -285,7 +285,7 @@ namespace FreeU
 			picLED2.Image = FreeU.Properties.Resources.led_OFF;
 			//println(FreeU.Properties.Resources.led_OFF);
 			//System.Console.WriteLine(FreeU.Properties.Resources.led_OFF.ToString());
-			//Process proc = new Process();
+			//Process p = new Process();
 			//Process.Start("D:\\Lab\\Visual Studio 2012\\Projects\\FreeU\\FreeU\\Resources\\wifi.bat");
 			//Process.Start(@"wifi.bat");
 			ProcessStartInfo psi = new ProcessStartInfo("cmd.exe", @"wifi.bat");
@@ -307,7 +307,8 @@ namespace FreeU
 
 		private void tmrConnection_Tick(object sender, EventArgs e)
 		{
-			if (!zigbee.isConnected())
+			// TODO revert it again
+			if (zigbee.isConnected())
 			{
 				tmrConnection.Enabled = false;
 				bool successful = false;
@@ -337,16 +338,58 @@ namespace FreeU
 
 		private void button1_Click_1(object sender, EventArgs e)
 		{
-			ProcessStartInfo psi = new ProcessStartInfo("cmd.exe", @"wifi.bat");
-			psi.RedirectStandardError = true;	
-			psi.RedirectStandardOutput = true;
-			psi.UseShellExecute = false;
-			Process proc = new Process();
-			proc.StartInfo = psi;
-			proc.OutputDataReceived += (sender2, args) => println(args.Data);
-			proc.Start();
-			proc.BeginOutputReadLine();
-			proc.WaitForExit();
+
+
+			var processInfo = new ProcessStartInfo("java.exe", "Main")
+			{
+				//CreateNoWindow = true,
+				UseShellExecute = false
+			};
+			Process p = Process.Start(processInfo);
+			if (p == null)
+				throw new InvalidOperationException("??");
+
+			p.WaitForExit();
+			int exitCode = p.ExitCode;
+			p.Close();
+
+
+			//Process p = Process.Start("cmd.exe", "echo %path%");
+
+
+			//Process p = Process.Start(@"wifi.bat");
+			//p.WaitForExit(3000);
+			//p.Close();
+			//p.StartInfo.UseShellExecute = false;
+			//p.StartInfo.RedirectStandardInput = true;
+			//p.StartInfo.RedirectStandardOutput = true;
+			//p.StandardInput.WriteLine();
+			//p.StartInfo.FileName = "		wifi.bat";
+			//	p.BeginOutputReadLine();
+			//p.Start();
+
+
+			//ProcessStartInfo psi = new ProcessStartInfo("cmd.exe", @"wifi.bat");
+			//psi.RedirectStandardError = true;
+			//psi.RedirectStandardOutput = true;
+			//psi.UseShellExecute = false;
+			//Process p = new Process();
+			//p.StartInfo = psi;
+			//p.OutputDataReceived += (sender2, args) => println(args.Data);
+			//p.Start();
+			//p.BeginOutputReadLine();
+			//p.WaitForExit();
+
+			//ProcessStartInfo psi = new ProcessStartInfo("cmd.exe", @"wifi.bat");
+			//psi.RedirectStandardError = true;	
+			//psi.RedirectStandardOutput = true;
+			//psi.UseShellExecute = false;
+			//Process p = new Process();
+			//p.StartInfo = psi;
+			//p.OutputDataReceived += (sender2, args) => println(args.Data);
+			//p.Start();
+			//p.BeginOutputReadLine();
+			//p.WaitForExit();
 		}
 
 
