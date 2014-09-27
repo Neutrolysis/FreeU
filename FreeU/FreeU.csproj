@@ -99,6 +99,7 @@
     </Compile>
     <Compile Include="SensorsUnit.cs" />
     <Compile Include="Serial.cs" />
+    <Compile Include="WifiConnection.cs" />
     <EmbeddedResource Include="MainForm.am.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>

@@ -333,65 +333,15 @@ namespace FreeU
 
 		private void optionsToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			//putCOMSIntoMenu();
+			putCOMSIntoMenu();
 		}
-
+		WifiConnection wifi = new WifiConnection();
 		private void button1_Click_1(object sender, EventArgs e)
 		{
-
-
-			var processInfo = new ProcessStartInfo("java.exe", "Main")
-			{
-				//CreateNoWindow = true,
-				UseShellExecute = false
-			};
-			Process p = Process.Start(processInfo);
-			if (p == null)
-				throw new InvalidOperationException("??");
-
-			p.WaitForExit();
-			int exitCode = p.ExitCode;
-			p.Close();
-
-
-			//Process p = Process.Start("cmd.exe", "echo %path%");
-
-
-			//Process p = Process.Start(@"wifi.bat");
-			//p.WaitForExit(3000);
-			//p.Close();
-			//p.StartInfo.UseShellExecute = false;
-			//p.StartInfo.RedirectStandardInput = true;
-			//p.StartInfo.RedirectStandardOutput = true;
-			//p.StandardInput.WriteLine();
-			//p.StartInfo.FileName = "		wifi.bat";
-			//	p.BeginOutputReadLine();
-			//p.Start();
-
-
-			//ProcessStartInfo psi = new ProcessStartInfo("cmd.exe", @"wifi.bat");
-			//psi.RedirectStandardError = true;
-			//psi.RedirectStandardOutput = true;
-			//psi.UseShellExecute = false;
-			//Process p = new Process();
-			//p.StartInfo = psi;
-			//p.OutputDataReceived += (sender2, args) => println(args.Data);
-			//p.Start();
-			//p.BeginOutputReadLine();
-			//p.WaitForExit();
-
-			//ProcessStartInfo psi = new ProcessStartInfo("cmd.exe", @"wifi.bat");
-			//psi.RedirectStandardError = true;	
-			//psi.RedirectStandardOutput = true;
-			//psi.UseShellExecute = false;
-			//Process p = new Process();
-			//p.StartInfo = psi;
-			//p.OutputDataReceived += (sender2, args) => println(args.Data);
-			//p.Start();
-			//p.BeginOutputReadLine();
-			//p.WaitForExit();
+			//wifi.send("Test");
+			println(wifi.listen());
 		}
-
+		 
 
 	}
 }
