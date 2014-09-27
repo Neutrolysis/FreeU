@@ -283,6 +283,18 @@ namespace FreeU
 		{
 			picLED1.Image = FreeU.Properties.Resources.led_OFF;
 			picLED2.Image = FreeU.Properties.Resources.led_OFF;
+			//println(FreeU.Properties.Resources.led_OFF);
+			//System.Console.WriteLine(FreeU.Properties.Resources.led_OFF.ToString());
+			//Process proc = new Process();
+			//Process.Start("D:\\Lab\\Visual Studio 2012\\Projects\\FreeU\\FreeU\\Resources\\wifi.bat");
+			//Process.Start(@"wifi.bat");
+			ProcessStartInfo psi = new ProcessStartInfo("cmd.exe", @"wifi.bat");
+			psi.RedirectStandardError = true;
+			psi.RedirectStandardOutput = true;
+			psi.UseShellExecute = false;
+			Process proc = new Process();
+			proc.StartInfo = psi;
+			proc.Start();
 		}
 
 		private void chkWindow1_CheckedChanged(object sender, EventArgs e)
@@ -310,7 +322,7 @@ namespace FreeU
 				{
 					Process.GetCurrentProcess().Kill();
 				}
-				try { zigbee.setupPort(); successful = zigbee.isConnected(); }
+				try { zigbee.setupPort(); successful = true; }
 				catch (Exception err) { println(err.Message); }
 				tmrConnection.Enabled = true;
 			}
@@ -321,6 +333,20 @@ namespace FreeU
 		private void optionsToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			//putCOMSIntoMenu();
+		}
+
+		private void button1_Click_1(object sender, EventArgs e)
+		{
+			ProcessStartInfo psi = new ProcessStartInfo("cmd.exe", @"wifi.bat");
+			psi.RedirectStandardError = true;	
+			psi.RedirectStandardOutput = true;
+			psi.UseShellExecute = false;
+			Process proc = new Process();
+			proc.StartInfo = psi;
+			proc.OutputDataReceived += (sender2, args) => println(args.Data);
+			proc.Start();
+			proc.BeginOutputReadLine();
+			proc.WaitForExit();
 		}
 
 

@@ -91,6 +91,7 @@
 			this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
 			this.tmrConnection = new System.Windows.Forms.Timer(this.components);
+			this.button1 = new System.Windows.Forms.Button();
 			this.tabControl2.SuspendLayout();
 			this.tabPage3.SuspendLayout();
 			this.groupBox5.SuspendLayout();
@@ -230,6 +231,7 @@
 			// groupBox4
 			// 
 			this.groupBox4.BackColor = System.Drawing.Color.Transparent;
+			this.groupBox4.Controls.Add(this.button1);
 			this.groupBox4.Controls.Add(this.btnZoomOut);
 			this.groupBox4.Controls.Add(this.btnZoomIn);
 			this.groupBox4.Controls.Add(this.chkProjector);
@@ -548,6 +550,13 @@
 			this.tmrConnection.Enabled = true;
 			this.tmrConnection.Tick += new System.EventHandler(this.tmrConnection_Tick);
 			// 
+			// button1
+			// 
+			resources.ApplyResources(this.button1, "button1");
+			this.button1.Name = "button1";
+			this.button1.UseVisualStyleBackColor = true;
+			this.button1.Click += new System.EventHandler(this.button1_Click_1);
+			// 
 			// MainForm
 			// 
 			this.AcceptButton = this.btnSerialSend;
@@ -650,6 +659,7 @@
 		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.Label lblHumidity;
 		private System.Windows.Forms.Label lblTemp;
+		private System.Windows.Forms.Button button1;
 	}
 }
 
