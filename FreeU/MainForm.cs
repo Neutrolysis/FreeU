@@ -45,7 +45,7 @@ namespace FreeU
 					portToolStripMenuItem.DropDownItems.Add(p);
 					//if (zigbee.isConnected()) && p.Equals(zigbee.getPortName()))
 					{
-						((ToolStripMenuItem)portToolStripMenuItem.DropDownItems[portToolStripMenuItem.DropDownItems.Count - 1]).Checked = true;
+						//((ToolStripMenuItem)portToolStripMenuItem.DropDownItems[portToolStripMenuItem.DropDownItems.Count - 1]).CheckOnClick = true;
 					}
 				}
 
@@ -235,14 +235,33 @@ namespace FreeU
 
 		private void portToolStripMenuItem_DropDownItemClicked(object sender, ToolStripItemClickedEventArgs e)
 		{
-			((ToolStripMenuItem)e.ClickedItem).Checked = true;// CheckOnClick = true;
+			//for (int i=0;i< portToolStripMenuItem.DropDownItems.Count-2;i++)
+			//{
+			//((ToolStripMenuItem)portToolStripMenuItem.DropDownItems[i]).Checked = false;
+			//}
+			//ToolStripMenuItem v = ((ToolStripMenuItem)sender);
+			//(portToolStripMenuItem.DropDownItems[0]).Checked = true;
+			// CheckOnClick = true;
 
 			//e.ClickedItem.Select();
 			//portToolStripMenuItem.DropDownItems[0].Select();
 			if (e.ClickedItem.ToString().Equals("Update"))
+			{
+				portToolStripMenuItem.Text = "Port";
 				putCOMSIntoMenu();
+			}
 			else
-				zigbee.setupPort(e.ClickedItem.ToString(), Serial.BAUD_RATE);
+			{
+				try
+				{
+					zigbee.setupPort(e.ClickedItem.ToString(), Serial.BAUD_RATE);
+				}
+				catch(Exception err)
+				{
+					println(err.Message);
+
+				}
+			}
 
 		}
 
@@ -315,7 +334,7 @@ namespace FreeU
 		private void tmrConnection_Tick(object sender, EventArgs e)
 		{
 			// TODO remove "false &&" 
-			if (!zigbee.isConnected() )
+			if (!zigbee.isConnected())
 			{
 				tmrConnection.Enabled = false;
 				DialogResult dialogResult = MessageBox.Show("Connection lost\r\nPress OK to connect again ,or Cancel to exit", "Connection lost", MessageBoxButtons.OKCancel);
@@ -359,6 +378,14 @@ namespace FreeU
 					}
 				});
 			thread.Start();
+		}
+
+		private void enableAndroidControlToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			if (enableAndroidControlToolStripMenuItem.Checked == true)
+				zigbee.sendCommand("v");
+			else
+				zigbee.sendCommand("u");
 		}
 	}
 }

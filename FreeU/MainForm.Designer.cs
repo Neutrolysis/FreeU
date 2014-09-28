@@ -525,6 +525,7 @@
 			this.enableAndroidControlToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
 			this.enableAndroidControlToolStripMenuItem.Name = "enableAndroidControlToolStripMenuItem";
 			resources.ApplyResources(this.enableAndroidControlToolStripMenuItem, "enableAndroidControlToolStripMenuItem");
+			this.enableAndroidControlToolStripMenuItem.Click += new System.EventHandler(this.enableAndroidControlToolStripMenuItem_Click);
 			// 
 			// helpToolStripMenuItem
 			// 
