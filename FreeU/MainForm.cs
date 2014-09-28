@@ -193,9 +193,9 @@ namespace FreeU
 
 		private void button1_Click(object sender, EventArgs e)
 		{
-			zigbee.sendCommand(txtSerialMessage.Text + "\n");
-			wifi.send(txtSerialMessage.Text);
+			//wifi.send(txtSerialMessage.Text);
 			//zigbee.receivedDataQueue.Enqueue(txtSerialMessage.Text);
+			zigbee.sendCommand(txtSerialMessage.Text + "\n");
 			txtSerialMessage.Text = "";
 		}
 
@@ -349,7 +349,7 @@ namespace FreeU
 
 		private void tmrConnection_Tick(object sender, EventArgs e)
 		{
-			// TODO remove "false &&" 
+			// TODO remove " && false" 
 			if (!zigbee.isConnected())
 			{
 				tmrConnection.Enabled = false;
