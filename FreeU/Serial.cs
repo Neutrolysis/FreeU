@@ -53,7 +53,7 @@ namespace FreeU
 			{
 				e.ToString();
 				// TODO uncomment this
-				//MessageBox.Show("No Connection!\r\nPlease reconnect and try again.\r\n");
+				MessageBox.Show("No Connection!\r\nPlease reconnect and try again.\r\n");
 			}
 		}
 

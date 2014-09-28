@@ -135,6 +135,7 @@ namespace FreeU
 						lblSmoke.ForeColor = Color.Red;
 						lblTemp.ForeColor = Color.Red;
 						fireAlarm.play();
+						wifi.send("!!!!FIRE!!!!");
 					}
 					else
 					{
