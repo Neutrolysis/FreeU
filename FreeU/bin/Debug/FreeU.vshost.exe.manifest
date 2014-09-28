@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="FreeU.exe" size="945664">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="FreeU.exe" size="944640">
       <assemblyIdentity name="FreeU" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>wIMIJl/wVMDxjaY200rvuHSpNwYkUCJGTjZdMquM4OM=</dsig:DigestValue>
+        <dsig:DigestValue>Og6vauNIFT6qjqi8hfZXQeYNPnW3tRm39KEHs2RZvbU=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -62,7 +62,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>3VIp77bToHruyn3V53Aq4vPBkNJYaoNKkNOfhYj6uz0=</dsig:DigestValue>
+        <dsig:DigestValue>9vTVUpnqb7RsiDolfWGCD0KR2h0LK9mHkD1bI5fsoDE=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -74,7 +74,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>NfX1W0hEmer6U5N+c9UmXcp5v1qHlRiNEnRaiM0OSNY=</dsig:DigestValue>
+        <dsig:DigestValue>YsmwhpEWCgpQh9XSjZAhGMvJvSZPeRu8EHn9dofIkQY=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

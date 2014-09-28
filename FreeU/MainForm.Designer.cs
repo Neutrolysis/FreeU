@@ -551,7 +551,6 @@
 			// 
 			// tmrWifi
 			// 
-			this.tmrWifi.Enabled = true;
 			this.tmrWifi.Interval = 1000;
 			this.tmrWifi.Tick += new System.EventHandler(this.tmrWifi_Tick);
 			// 

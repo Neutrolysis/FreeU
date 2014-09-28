@@ -92,7 +92,7 @@ namespace FreeU
 							lblSmoke.Text = value;
 							sensors.smoke = receivedValue;
 							break;
-						case 'W':
+						case 'I':
 							lblPower.Text = (receivedValue / 1000 * 220).ToString() + " W";
 							sensors.power = receivedValue;
 							energy.addCurrentReading(receivedValue);
@@ -109,6 +109,24 @@ namespace FreeU
 								chkLED2.Checked = true;
 							else if (receivedValue == 0 && chkLED2.Checked == true)
 								chkLED2.Checked = false;
+							break;
+						case 'W':
+							if (receivedValue == 1 && chkWindow1.Checked == false)
+								chkWindow1.Checked = true;
+							else if (receivedValue == 0 && chkWindow1.Checked == true)
+								chkWindow1.Checked = false;
+							break;
+						case 'F':
+							if (receivedValue == 1 && chkAC.Checked == false)
+								chkAC.Checked = true;
+							else if (receivedValue == 0 && chkAC.Checked == true)
+								chkAC.Checked = false;
+							break;
+						case 'P':
+							if (receivedValue == 1 && chkProjector.Checked == false)
+								chkProjector.Checked = true;
+							else if (receivedValue == 0 && chkProjector.Checked == true)
+								chkProjector.Checked = false;
 							break;
 					}
 
@@ -251,6 +269,10 @@ namespace FreeU
 		}
 		private void cmbMode_SelectedIndexChanged(object sender, MouseEventArgs e)
 		{
+
+		}
+		private void cmbMode_SelectedIndexChanged(object sender, EventArgs e)
+		{
 			switch (cmbMode.SelectedIndex)
 			{
 				case 0:
@@ -275,27 +297,11 @@ namespace FreeU
 					break;
 			}
 		}
-		private void cmbMode_SelectedIndexChanged(object sender, EventArgs e)
-		{
-
-		}
 
 		private void Form1_Load(object sender, EventArgs e)
 		{
 			picLED1.Image = FreeU.Properties.Resources.led_OFF;
 			picLED2.Image = FreeU.Properties.Resources.led_OFF;
-			//println(FreeU.Properties.Resources.led_OFF);
-			//System.Console.WriteLine(FreeU.Properties.Resources.led_OFF.ToString());
-			//Process p = new Process();
-			//Process.Start("D:\\Lab\\Visual Studio 2012\\Projects\\FreeU\\FreeU\\Resources\\wifi.bat");
-			//Process.Start(@"wifi.bat");
-			ProcessStartInfo psi = new ProcessStartInfo("cmd.exe", @"wifi.bat");
-			psi.RedirectStandardError = true;
-			psi.RedirectStandardOutput = true;
-			psi.UseShellExecute = false;
-			Process proc = new Process();
-			proc.StartInfo = psi;
-			proc.Start();
 		}
 
 		private void chkWindow1_CheckedChanged(object sender, EventArgs e)
@@ -309,7 +315,7 @@ namespace FreeU
 		private void tmrConnection_Tick(object sender, EventArgs e)
 		{
 			// TODO remove "false &&" 
-			if (!zigbee.isConnected() && false)
+			if (!zigbee.isConnected() )
 			{
 				tmrConnection.Enabled = false;
 				DialogResult dialogResult = MessageBox.Show("Connection lost\r\nPress OK to connect again ,or Cancel to exit", "Connection lost", MessageBoxButtons.OKCancel);
@@ -345,11 +351,11 @@ namespace FreeU
 					{
 						tmrWifi.Enabled = false;
 						println(new WifiConnection().listen());
+						tmrWifi.Enabled = true;
 					}
 					catch (Exception err) { System.Console.WriteLine(err.Message); }
 					finally
 					{
-						tmrWifi.Enabled = true;
 					}
 				});
 			thread.Start();

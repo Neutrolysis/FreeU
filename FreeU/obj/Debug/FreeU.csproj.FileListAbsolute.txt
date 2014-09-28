@@ -17,3 +17,4 @@ D:\Lab\Visual Studio 2012\Projects\FreeU\FreeU\obj\Debug\FreeU.exe.manifest
 D:\Lab\Visual Studio 2012\Projects\FreeU\FreeU\obj\Debug\FreeU.application
 D:\Lab\Visual Studio 2012\Projects\FreeU\FreeU\obj\Debug\FreeU.exe
 D:\Lab\Visual Studio 2012\Projects\FreeU\FreeU\obj\Debug\FreeU.pdb
+D:\Lab\Visual Studio 2012\Projects\FreeU\FreeU\obj\Debug\FreeU.csprojResolveAssemblyReference.cache
