@@ -52,7 +52,8 @@ namespace FreeU
 			catch (InvalidOperationException e)
 			{
 				e.ToString();
-				MessageBox.Show("No Connection!\r\nPlease reconnect and try again.\r\n");
+				// TODO uncomment this
+				//MessageBox.Show("No Connection!\r\nPlease reconnect and try again.\r\n");
 			}
 		}
 

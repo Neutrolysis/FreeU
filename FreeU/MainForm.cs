@@ -175,6 +175,7 @@ namespace FreeU
 		private void button1_Click(object sender, EventArgs e)
 		{
 			zigbee.sendCommand(txtSerialMessage.Text + "\n");
+			wifi.send(txtSerialMessage.Text);
 			//zigbee.receivedDataQueue.Enqueue(txtSerialMessage.Text);
 			txtSerialMessage.Text = "";
 		}
@@ -307,11 +308,10 @@ namespace FreeU
 
 		private void tmrConnection_Tick(object sender, EventArgs e)
 		{
-			// TODO revert it again
-			if (zigbee.isConnected())
+			// TODO remove "false &&" 
+			if (!zigbee.isConnected() && false)
 			{
 				tmrConnection.Enabled = false;
-				bool successful = false;
 				DialogResult dialogResult = MessageBox.Show("Connection lost\r\nPress OK to connect again ,or Cancel to exit", "Connection lost", MessageBoxButtons.OKCancel);
 				if (dialogResult == DialogResult.OK)
 				{
@@ -323,7 +323,7 @@ namespace FreeU
 				{
 					Process.GetCurrentProcess().Kill();
 				}
-				try { zigbee.setupPort(); successful = true; }
+				try { zigbee.setupPort(); }
 				catch (Exception err) { println(err.Message); }
 				tmrConnection.Enabled = true;
 			}
@@ -336,12 +336,23 @@ namespace FreeU
 			putCOMSIntoMenu();
 		}
 		WifiConnection wifi = new WifiConnection();
-		private void button1_Click_1(object sender, EventArgs e)
+		private void tmrWifi_Tick(object sender, EventArgs e)
 		{
-			//wifi.send("Test");
-			println(wifi.listen());
+			var thread = new Thread(
+				() =>
+				{
+					try
+					{
+						tmrWifi.Enabled = false;
+						println(new WifiConnection().listen());
+					}
+					catch (Exception err) { System.Console.WriteLine(err.Message); }
+					finally
+					{
+						tmrWifi.Enabled = true;
+					}
+				});
+			thread.Start();
 		}
-		 
-
 	}
 }
