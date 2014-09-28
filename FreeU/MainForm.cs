@@ -256,7 +256,7 @@ namespace FreeU
 				{
 					zigbee.setupPort(e.ClickedItem.ToString(), Serial.BAUD_RATE);
 				}
-				catch(Exception err)
+				catch (Exception err)
 				{
 					println(err.Message);
 
@@ -281,7 +281,22 @@ namespace FreeU
 				zigbee.sendCommand("9");
 			else if (chkProjector.Checked == false)
 			{
-				zigbee.sendCommand("a");
+				var thread = new Thread(
+	() =>
+	{
+		try
+		{
+			zigbee.sendCommand("a");
+			Thread.Sleep(1000);
+			zigbee.sendCommand("a");
+		}
+		catch (Exception err) { System.Console.WriteLine(err.Message); }
+		finally
+		{
+		}
+	});
+				thread.Start();
+
 			}
 			btnZoomIn.Enabled = chkProjector.Checked;
 			btnZoomOut.Enabled = chkProjector.Checked;
@@ -373,9 +388,6 @@ namespace FreeU
 						tmrWifi.Enabled = true;
 					}
 					catch (Exception err) { System.Console.WriteLine(err.Message); }
-					finally
-					{
-					}
 				});
 			thread.Start();
 		}
