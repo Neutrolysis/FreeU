@@ -64,17 +64,6 @@
 			this.picLED2 = new System.Windows.Forms.PictureBox();
 			this.picLED1 = new System.Windows.Forms.PictureBox();
 			this.chkLED2 = new System.Windows.Forms.CheckBox();
-			this.tabPage2 = new System.Windows.Forms.TabPage();
-			this.label7 = new System.Windows.Forms.Label();
-			this.label8 = new System.Windows.Forms.Label();
-			this.label9 = new System.Windows.Forms.Label();
-			this.label10 = new System.Windows.Forms.Label();
-			this.label11 = new System.Windows.Forms.Label();
-			this.label12 = new System.Windows.Forms.Label();
-			this.label13 = new System.Windows.Forms.Label();
-			this.label14 = new System.Windows.Forms.Label();
-			this.label15 = new System.Windows.Forms.Label();
-			this.label16 = new System.Windows.Forms.Label();
 			this.tabPage1 = new System.Windows.Forms.TabPage();
 			this.panel1 = new System.Windows.Forms.Panel();
 			this.txtSerialMessage = new System.Windows.Forms.TextBox();
@@ -92,6 +81,8 @@
 			this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
 			this.tmrConnection = new System.Windows.Forms.Timer(this.components);
 			this.tmrWifi = new System.Windows.Forms.Timer(this.components);
+			this.tmsSendLectures = new System.Windows.Forms.Timer(this.components);
+			this.tmrRefreshLectures = new System.Windows.Forms.Timer(this.components);
 			this.tabControl2.SuspendLayout();
 			this.tabPage3.SuspendLayout();
 			this.groupBox5.SuspendLayout();
@@ -103,7 +94,6 @@
 			this.groupBox1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.picLED2)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.picLED1)).BeginInit();
-			this.tabPage2.SuspendLayout();
 			this.tabPage1.SuspendLayout();
 			this.panel1.SuspendLayout();
 			this.menuStrip1.SuspendLayout();
@@ -125,7 +115,6 @@
 			// tabControl2
 			// 
 			this.tabControl2.Controls.Add(this.tabPage3);
-			this.tabControl2.Controls.Add(this.tabPage2);
 			this.tabControl2.Controls.Add(this.tabPage1);
 			resources.ApplyResources(this.tabControl2, "tabControl2");
 			this.tabControl2.Name = "tabControl2";
@@ -375,72 +364,6 @@
 			this.chkLED2.UseVisualStyleBackColor = true;
 			this.chkLED2.CheckedChanged += new System.EventHandler(this.chkLED2_CheckedChanged);
 			// 
-			// tabPage2
-			// 
-			this.tabPage2.BackColor = System.Drawing.SystemColors.Control;
-			this.tabPage2.Controls.Add(this.label7);
-			this.tabPage2.Controls.Add(this.label8);
-			this.tabPage2.Controls.Add(this.label9);
-			this.tabPage2.Controls.Add(this.label10);
-			this.tabPage2.Controls.Add(this.label11);
-			this.tabPage2.Controls.Add(this.label12);
-			this.tabPage2.Controls.Add(this.label13);
-			this.tabPage2.Controls.Add(this.label14);
-			this.tabPage2.Controls.Add(this.label15);
-			this.tabPage2.Controls.Add(this.label16);
-			resources.ApplyResources(this.tabPage2, "tabPage2");
-			this.tabPage2.Name = "tabPage2";
-			// 
-			// label7
-			// 
-			resources.ApplyResources(this.label7, "label7");
-			this.label7.Name = "label7";
-			// 
-			// label8
-			// 
-			resources.ApplyResources(this.label8, "label8");
-			this.label8.Name = "label8";
-			// 
-			// label9
-			// 
-			resources.ApplyResources(this.label9, "label9");
-			this.label9.Name = "label9";
-			// 
-			// label10
-			// 
-			resources.ApplyResources(this.label10, "label10");
-			this.label10.Name = "label10";
-			// 
-			// label11
-			// 
-			resources.ApplyResources(this.label11, "label11");
-			this.label11.Name = "label11";
-			// 
-			// label12
-			// 
-			resources.ApplyResources(this.label12, "label12");
-			this.label12.Name = "label12";
-			// 
-			// label13
-			// 
-			resources.ApplyResources(this.label13, "label13");
-			this.label13.Name = "label13";
-			// 
-			// label14
-			// 
-			resources.ApplyResources(this.label14, "label14");
-			this.label14.Name = "label14";
-			// 
-			// label15
-			// 
-			resources.ApplyResources(this.label15, "label15");
-			this.label15.Name = "label15";
-			// 
-			// label16
-			// 
-			resources.ApplyResources(this.label16, "label16");
-			this.label16.Name = "label16";
-			// 
 			// tabPage1
 			// 
 			this.tabPage1.Controls.Add(this.panel1);
@@ -555,6 +478,18 @@
 			this.tmrWifi.Interval = 1000;
 			this.tmrWifi.Tick += new System.EventHandler(this.tmrWifi_Tick);
 			// 
+			// tmsSendLectures
+			// 
+			this.tmsSendLectures.Enabled = true;
+			this.tmsSendLectures.Interval = 3000;
+			this.tmsSendLectures.Tick += new System.EventHandler(this.tmrSendLectures_Tick);
+			// 
+			// tmrRefreshLectures
+			// 
+			this.tmrRefreshLectures.Enabled = true;
+			this.tmrRefreshLectures.Interval = 36000000;
+			this.tmrRefreshLectures.Tick += new System.EventHandler(this.tmrRefreshLectures_Tick);
+			// 
 			// MainForm
 			// 
 			this.AcceptButton = this.btnSerialSend;
@@ -582,8 +517,6 @@
 			this.groupBox1.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.picLED2)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.picLED1)).EndInit();
-			this.tabPage2.ResumeLayout(false);
-			this.tabPage2.PerformLayout();
 			this.tabPage1.ResumeLayout(false);
 			this.panel1.ResumeLayout(false);
 			this.panel1.PerformLayout();
@@ -599,7 +532,6 @@
 		private System.Windows.Forms.Timer timer1;
 		private System.Windows.Forms.CheckBox chkLED1;
 		private System.Windows.Forms.TabControl tabControl2;
-		private System.Windows.Forms.TabPage tabPage2;
 		private System.Windows.Forms.TabPage tabPage3;
 		private System.Windows.Forms.CheckBox chkLED2;
 		public System.Windows.Forms.TextBox txtSerial;
@@ -636,16 +568,6 @@
 		private System.Windows.Forms.PictureBox picLED1;
 		private System.Windows.Forms.PictureBox picLED2;
 		private System.Windows.Forms.Timer tmrConnection;
-		private System.Windows.Forms.Label label7;
-		private System.Windows.Forms.Label label8;
-		private System.Windows.Forms.Label label9;
-		private System.Windows.Forms.Label label10;
-		private System.Windows.Forms.Label label11;
-		private System.Windows.Forms.Label label12;
-		private System.Windows.Forms.Label label13;
-		private System.Windows.Forms.Label label14;
-		private System.Windows.Forms.Label label15;
-		private System.Windows.Forms.Label label16;
 		private System.Windows.Forms.GroupBox groupBox5;
 		private System.Windows.Forms.Label label6;
 		private System.Windows.Forms.Label lblEnergy;
@@ -658,6 +580,8 @@
 		private System.Windows.Forms.Label lblHumidity;
 		private System.Windows.Forms.Label lblTemp;
 		private System.Windows.Forms.Timer tmrWifi;
+		private System.Windows.Forms.Timer tmsSendLectures;
+		private System.Windows.Forms.Timer tmrRefreshLectures;
 	}
 }
 

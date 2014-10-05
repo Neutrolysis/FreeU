@@ -12,7 +12,7 @@
       <Value Profile="(Default)">9600</Value>
     </Setting>
     <Setting Name="FIRE_ALARM_MIN_SMOKE" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">200</Value>
+      <Value Profile="(Default)">150</Value>
     </Setting>
   </Settings>
 </SettingsFile>

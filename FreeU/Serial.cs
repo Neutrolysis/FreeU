@@ -43,13 +43,13 @@ namespace FreeU
 		}
 		public void send(String s)
 		{
-			var form = Form.ActiveForm as MainForm;
 			try
 			{
+				var form = Form.ActiveForm as MainForm;
 				form.println(">>Sending: " + s + "\r\n");
 				serialPort.Write(s);
 			}
-			catch (InvalidOperationException e)
+			catch (Exception e)
 			{
 				e.ToString();
 				// TODO uncomment this

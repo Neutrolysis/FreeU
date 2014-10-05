@@ -83,6 +83,7 @@
   <ItemGroup>
     <Compile Include="Alarm.cs" />
     <Compile Include="EnergyCalculator.cs" />
+    <Compile Include="Lecture.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -99,6 +100,7 @@
     </Compile>
     <Compile Include="SensorsUnit.cs" />
     <Compile Include="Serial.cs" />
+    <Compile Include="TimeTable.cs" />
     <Compile Include="WifiConnection.cs" />
     <EmbeddedResource Include="MainForm.am.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

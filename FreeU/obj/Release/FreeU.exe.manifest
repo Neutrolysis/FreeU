@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="FreeU.exe" size="944128">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="FreeU.exe" size="928768">
       <assemblyIdentity name="FreeU" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>tzvlyYijao1XO7sTw8jLGuzvOpEOfKmakBRCHwnAikI=</dsig:DigestValue>
+        <dsig:DigestValue>GuHiIWSenxLBJ+jP8RY4aUbMxsgE4IVuEmOD4YEgLuk=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -62,7 +62,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>6IdhCEdkZBRaXwmXs09BEM1DMb4znMjNZT0KN7qfPes=</dsig:DigestValue>
+        <dsig:DigestValue>AAd4yDQBeZ+kxtGmXnYPiIl1qCmabA7YLhpwspd8pWs=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -74,7 +74,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>Iyx61prDdypN/g7JuJcHeKWo3Pb25ek2v3ZjI9dsVyg=</dsig:DigestValue>
+        <dsig:DigestValue>KSzcmV2JFgx7Wom6DKB/XI+xEFIf2Ws8tc7jx/2A0+s=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -84,7 +84,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>Ha0hNhCE1mOVosecC5Dw9MAuaSB/wMsIEVOy+NXStBg=</dsig:DigestValue>
+      <dsig:DigestValue>NZ6InGWgrXwNzqJ41p02K93Y8tqcCXYDcSTnJDxeLRU=</dsig:DigestValue>
     </hash>
   </file>
   <file name="icon.ico" size="166582">

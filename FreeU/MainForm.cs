@@ -75,7 +75,7 @@ namespace FreeU
 					string value = receivedMsg.Substring(1, receivedMsg.Length - 1);
 					double receivedValue = 0;
 					try { receivedValue = double.Parse(value); }
-					catch (FormatException err) { println(err.Message); }
+					catch (Exception err) { println(err.Message); }
 
 					//	switching on key
 					switch (key)
@@ -96,7 +96,7 @@ namespace FreeU
 							lblPower.Text = (receivedValue / 1000 * 220).ToString() + " W";
 							sensors.power = receivedValue;
 							energy.addCurrentReading(receivedValue);
-							lblEnergy.Text = energy.getConsumedPower().ToString();
+							lblEnergy.Text = energy.getConsumedPower().ToString()+ "KW.hour";
 							break;
 						case 'R':
 							if (receivedValue == 1 && chkLED1.Checked == false)
@@ -194,8 +194,8 @@ namespace FreeU
 		private void button1_Click(object sender, EventArgs e)
 		{
 			//wifi.send(txtSerialMessage.Text);
-			//zigbee.receivedDataQueue.Enqueue(txtSerialMessage.Text);
-			zigbee.sendCommand(txtSerialMessage.Text + "\n");
+			zigbee.receivedDataQueue.Enqueue(txtSerialMessage.Text);
+			//zigbee.sendCommand(txtSerialMessage.Text + "\n");
 			txtSerialMessage.Text = "";
 		}
 
@@ -337,6 +337,7 @@ namespace FreeU
 		{
 			picLED1.Image = FreeU.Properties.Resources.led_OFF;
 			picLED2.Image = FreeU.Properties.Resources.led_OFF;
+			tmrSendLectures_Tick(sender, e);
 		}
 
 		private void chkWindow1_CheckedChanged(object sender, EventArgs e)
@@ -399,6 +400,22 @@ namespace FreeU
 				zigbee.sendCommand("v");
 			else
 				zigbee.sendCommand("u");
+		}
+		TimeTable timeTable = new TimeTable("C:\\Users\\N1amr\\Desktop\\Book1.csv");
+
+		private void tmrSendLectures_Tick(object sender, EventArgs e)
+		{
+			while (timeTable.hasNext())
+			{
+				String msg = timeTable.nextLecture().ToString();
+				wifi.send(msg);
+				println(msg);
+			}
+		}
+
+		private void tmrRefreshLectures_Tick(object sender, EventArgs e)
+		{
+			timeTable.refreshQueue();
 		}
 	}
 }

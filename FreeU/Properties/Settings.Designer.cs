@@ -61,7 +61,7 @@ namespace FreeU.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("200")]
+        [global::System.Configuration.DefaultSettingValueAttribute("150")]
         public int FIRE_ALARM_MIN_SMOKE {
             get {
                 return ((int)(this["FIRE_ALARM_MIN_SMOKE"]));
